@@ -18,10 +18,18 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader"
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "fonts/"
+            }
+          }
         ]
       }
     ]

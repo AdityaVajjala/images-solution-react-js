@@ -1,19 +1,28 @@
-import React, { Component } from 'react';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import React, { Component } from "react";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import RouterConfig from "../Router/router";
+import "react-notifications/lib/notifications.css";
+import { NotificationContainer } from "react-notifications";
 
 class Body extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notifications: []
+    };
+  }
   render() {
-
     return (
-    <Router>
-      <Header />
-
-      <Footer />
-    </Router>
-    )
+      <div>
+        <Header />
+        <div className="content">
+          <NotificationContainer />
+          <RouterConfig />
+        </div>
+        <Footer />
+      </div>
+    );
   }
 }
 

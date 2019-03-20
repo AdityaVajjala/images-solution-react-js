@@ -1,0 +1,24 @@
+.image-container {
+    max-width: 200px;
+    max-height: 200px;
+    display: inline-block;
+    margin: 5px;
+    transition: 200ms;
+    .image {
+        max-width: 175px;
+        max-height: 175px;
+        visibility: hidden;
+    }
+    .image-actions {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+    }
+    .image-actions svg {
+        cursor: pointer;
+        font-size: 20px;
+    }
+    .image-actions svg:nth-child(1) {
+        fill: orangered;
+    }
+}
