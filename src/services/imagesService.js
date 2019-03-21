@@ -48,17 +48,17 @@ export default class ImageService extends BaseService {
     });
   }
 
-  uploadImages(images){
+  uploadImages(images) {
     let promise = undefined;
-    for(let i = 0; i < images.length; i++){
-      let img = images[i];
-      if(promise === undefined){
-        promise = this.uploadImage(img);
+    for (let i = 0; i < images.length; i++) {
+      var image = images[i];
+      if (promise === undefined) {
+        promise = this.uploadImage(image);
       } else {
-        promise.then((img) => {
-          let img1 = img;
-          this.uploadImage(img1);
-        })
+        // eslint-disable-next-line no-loop-func
+        promise.then(img => {
+          this.uploadImage(image);
+        });
       }
     }
     return promise;
